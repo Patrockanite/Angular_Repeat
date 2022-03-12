@@ -5,13 +5,29 @@
         <meta name='viewport' content='width=device-width, initial-scale=1.0'>
         <link href = 'css/bootstrap.min.css' rel = 'stylesheet'>
         <link href = 'css/style.css' rel = 'stylesheet'>
-        <title></title>
+        <title>NG -Repeat</title>
     </head>
     <body>
-        <h1></h1>
+        <h1 class="text-primary">NG-Repeat</h1>
         <div id ='main-content' ng-controller='RepeatController'>
-
-
+            <h3>Shopping Liste 1 :</h3>
+            <ul>
+                <li ng-repeat="item in shoppingListe1">{{ item }}</li>
+            </ul>
+            <h3>Shopping Liste 2 :</h3>
+            <ul><!--tableau d'objets-->
+                <li ng-repeat="item in shoppingListe2">Buy {{item.quantity}} of {{item.name}}</li>
+            </ul>
+            <h3>Shopping Liste 2 numérotée :</h3>
+            <!--Pour pouvoir modifier le premier élément-->
+            <input type="text" ng-model="shoppingListe2[0].quantity">
+            <ul><!--Avec index Attention au dollar sign $-->
+                <li ng-repeat="item in shoppingListe2">{{$index+1}} : Buy {{item.quantity}} of {{item.name}}</li>
+            </ul>
+            <h3>Ajout d'un item supplémentaire à la liste 2</h3>
+            <input type="text" ng-model="newItemName" placeholder="item name">
+            <input type="text" ng-model="newItemQuantity" placeholder="item Quantity">
+            <button ng-click="addToList()">Add To List</button>
 
             
         </div>
