@@ -7,6 +7,11 @@ var shoppingListe2 = [
     {name:"Cookies",quantity:"300"},
     {name:"Chocolate",quantity:"5"}
 ];
+
+/* Autre shopping liste pour filter */
+var autreShoppingList = ['Milk','Donuts','Cookies','Chocolate','Peanut Butter','Pepto Bismol','Pepto Bismol (Chocolate flavor)','Pepto Bismol (Cookie flavor)'];
+
+
     angular.module('RepeatModule',[])
         .controller('RepeatController',RepeatController);
     RepeatController.$inject=['$scope'];
@@ -14,6 +19,9 @@ var shoppingListe2 = [
     function RepeatController($scope){
         $scope.shoppingListe1 = shoppingListe1;
         $scope.shoppingListe2 = shoppingListe2;
+        /* Autre shoppingList pour filtrer */
+        $scope.autreShoppingList = autreShoppingList;
+
         $scope.addToList = function(){
             var newItem={
                 name: $scope.newItemName,

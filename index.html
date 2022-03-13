@@ -14,9 +14,9 @@
             <ul>
                 <li ng-repeat="item in shoppingListe1">{{ item }}</li>
             </ul>
-            <h3>Shopping Liste 2 :</h3>
-            <ul><!--tableau d'objets-->
-                <li ng-repeat="item in shoppingListe2">Buy {{item.quantity}} of {{item.name}}</li>
+            <h3>Shopping Liste 2 : <em>(stylé par Bootstrap 5)</em></h3>
+            <ul class="list-group"><!--tableau d'objets-->
+                <li class="list-group-item" ng-repeat="item in shoppingListe2">Buy {{item.quantity}} of {{item.name}}</li>
             </ul>
             <h3>Shopping Liste 2 numérotée :</h3>
             <!--Pour pouvoir modifier le premier élément-->
@@ -29,7 +29,11 @@
             <input type="text" ng-model="newItemQuantity" placeholder="item Quantity">
             <button ng-click="addToList()">Add To List</button>
 
-            
+            <h3>Autre shopping List pour filtrer</h3>
+            <input type="text" ng-model="search"><!--Le contenu du champ est le critère de recherche du filtre du même nom-->
+            <ul class="list-group"><!--tableau d'objets-->
+                <li class="list-group-item-danger" ng-repeat="item in autreShoppingList | filter : search">{{item}}</li>
+            </ul>
         </div>
     </body>
     <script src='scr/angular.min.js'></script>
